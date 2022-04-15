@@ -10,12 +10,11 @@ html(lang="es")
 
     include ./header.pug
 
-    h1 Esto es un h1 
-    h2 esto es un h2
+    if show === 'list'
+        include ./list_products.pug
+    else if show === 'form'    
+        include ./form.pug
 
-    include ./form.pug
-    include ./list_products.pug
-
+    include ./footer.pug
 
     script(src="/js/script.js")
-    include ./footer.pug
