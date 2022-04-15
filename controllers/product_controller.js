@@ -1,15 +1,27 @@
 const productDB = require('../models/product_model');
 
-const goToForm = (req, res) => {
-    res.render('theme', { show: 'form' });
+const getProducts = (req, res) => {
+    try {
+        res.render('theme', { show: 'list' });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-const getProducts = (req, res) => {
-    res.render('theme', { show: 'list' });
+const goToForm = (req, res) => {
+    try {
+        res.render('theme', { show: 'form' });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const setProduct = (req, res) => {
-    res.render('theme', { show: 'form' });
+    try {
+        res.render('theme', { show: 'form' });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 module.exports = {
