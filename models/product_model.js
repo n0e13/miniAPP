@@ -1,14 +1,23 @@
 const Product = require('./product_schema');
 
 const getProducts = async () => {
-
+    try {
+        return await Product.find({});
+    } catch (error) {
+        throw error
+    }
 }
 
-const createPorduct = async () => {
-
+const createPorduct = async (product) => {
+    try {
+        const newProduct = new Product(product);
+        await Product.create(newProduct);
+    } catch (error) {
+        throw error
+    }
 }
 
 module.exports = {
     getProducts,
     createPorduct
-};
+}

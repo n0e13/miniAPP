@@ -1,28 +1,28 @@
 const morgan = require('morgan');
 
 morgan.token('host', function (req) {
-    /* return req.hostname; */
+     return req.hostname; 
 });
 
 morgan.token('body', function (req) {
-/*     return [
+    return [
         JSON.stringify(req.body)
-    ]; */
+    ];
 });
 
 morgan.token('param', function (req) {
-/*     let textToReturn = 'No hay params';
+    let textToReturn = 'No hay params';
     if (req.params.designation) {
         textToReturn = `designation: ${req.params.designation}`;
     }
     else if (req.params.id){
         textToReturn = `ìd: ${req.params.id}`;
     }
-    return `param ${textToReturn}`; */
+    return `param ${textToReturn}`;
 });
 
 morgan.token('query', function (req) {
-/*     let textToReturn = 'No hay query';
+    let textToReturn = 'No hay query';
     if (req.query.to && req.query.from) {
         textToReturn = `from: ${req.query.from} & to: ${req.query.to}`;
     }
@@ -31,7 +31,7 @@ morgan.token('query', function (req) {
     } else if (req.query.from){
         textToReturn = `from: ${req.query.from}`;
     }
-    return `query ${textToReturn}`; */
+    return `query ${textToReturn}`;
 });
 
 module.exports = morgan;
