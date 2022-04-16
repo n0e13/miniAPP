@@ -18,15 +18,19 @@ const goToForm = (req, res) => {
 }
 
 const setProduct = async (req, res) => {
-    if (Object.keys(req.body) !== 0) {
+    if (req.body.name !== '' 
+    && req.body.price !== '' 
+    && req.body.description !== '' 
+    && req.body.image !== '') {
+        console.log(req.body);
         try {
             await productDB.createPorduct(req.body);
-            res.status(201).render('theme', {show: 'form'});
+            res.status(201).render('theme', { show: 'form' });
         } catch (error) {
             res.status(400).json({ message: error });
         }
     } else {
-        res.status(400).json({ message: "No hay datos para crear un producto" });
+        res.status(400).render('theme', { show: 'form' });
     }
 }
 
