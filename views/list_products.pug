@@ -1,9 +1,11 @@
 section 
-    .product__container 
-        .product__img 
-            img(src="", alt="", srcset="")
-        .product__info
-            .product__info--name 
-                p Nombre: 
-            .product__info--price 
-                p Precio:
+    if list 
+        each product in list 
+            .product__container 
+                .product__img 
+                    img(src="", alt="", srcset="")
+                .product__info
+                    .product__info--name 
+                        p Nombre: #{product.name}
+                    .product__info--price 
+                        p Precio: #{product.price}

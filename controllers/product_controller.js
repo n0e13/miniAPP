@@ -21,7 +21,7 @@ const setProduct = async (req, res) => {
     if (Object.keys(req.body) !== 0) {
         try {
             await productDB.createPorduct(req.body);
-            res.status(201).json({ message: "Producto creado" });
+            res.status(201).render('theme', {show: 'form'});
         } catch (error) {
             res.status(400).json({ message: error });
         }

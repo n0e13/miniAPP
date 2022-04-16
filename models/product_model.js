@@ -10,7 +10,6 @@ const getProducts = async () => {
 
 const createPorduct = async (product) => {
     try {
-        console.log('dentro');
         const newProduct = new Product(product);
         await Product.create(newProduct);
     } catch (error) {
