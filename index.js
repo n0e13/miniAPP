@@ -1,9 +1,8 @@
 const express = require('express');
 const helmet = require('helmet');
 
-const { app: { port } } = require('./configs/env_config');
+const { app: { PORT } } = require('./configs/env_config');
 const connectMongoDB = require('./configs/mongodb_config');
-const morgan = require('./configs/morgan_config');
 
 const productsRouter = require('./routes/routes');
 
@@ -17,8 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-app.use(morgan(':method / :host / :status / :query / :param / :res[content-length] / :response-time ms / :body'));
-
 app.use('/', productsRouter);
 
 /**
@@ -28,8 +25,9 @@ app.use('/', productsRouter);
 const init = async () => {
     try {
         await connectMongoDB();
-        app.listen(port, () => {
-            console.log(`Example app listening at http://localhost:${port}`)
+
+        app.listen(PORT, () => {
+            console.log(`Example app listening at http://localhost:${PORT}`)
         })
     }
     catch (error) {

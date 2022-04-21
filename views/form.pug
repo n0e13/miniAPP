@@ -1,10 +1,10 @@
-form(action="/addproduct", method="post") 
+form(action="/addproduct", method="post", enctype="multipart/form-data") 
     label(for="name") Nombre:
-    input(type="text", name="name")
+    input(type="text", name="name" required)
     label(for="price") Precio:
-    input(type="text", name="price")
+    input(type="text", name="price" required)
     label(for="description") Descripción:
-    input(type="text", name="description")
-    label(for="image") Imagen:
-    input(type="file", name="image")
+    input(type="text", name="description" required)
+    label(for="product_img") Imagen:
+    input(type="file", name="product_img" required)
     input(type="submit", value="Guardar")
