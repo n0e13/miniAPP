@@ -5,10 +5,13 @@ dotenv.config();
 /** Librería de claves */
 const aka = {
     app: {
-        port: process.env.PORT
+        PORT: process.env.PORT
     },
     mongo: {
-        mongo_uri: process.env.DBMONGO_URI
+        MONGO_URI: process.env.DBMONGO_URI
+    },
+    firebase: {
+        FB_BUCKET: process.env.FB_BUCKET
     }
 };
 

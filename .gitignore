@@ -105,3 +105,6 @@ dist
 
 # OS Files
 .DS_Store
+
+# Firebase
+firebase.json

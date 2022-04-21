@@ -8,7 +8,7 @@
 const mongoose = require('mongoose');
 
 /** Clave de conexión */
-const { mongo: { mongo_uri } } = require('./env_config');
+const { mongo: { MONGO_URI } } = require('./env_config');
 
 /** 
  * Función asíncrona que conecta a la BBDD de MongoDB 
@@ -16,7 +16,7 @@ const { mongo: { mongo_uri } } = require('./env_config');
  */
 const connectMongoDB = async () => {
     try {
-        const res = await mongoose.connect(mongo_uri);
+        const res = await mongoose.connect(MONGO_URI);
         console.log('MongoDB connected...');
     } catch (error) {
         console.log(`Unable to connect to MongoDB database: ${error}`);

@@ -17,25 +17,18 @@ const goToForm = (req, res) => {
     }
 }
 
-const setProduct = async (req, res) => {
-    if (req.body.name !== '' 
-    && req.body.price !== '' 
-    && req.body.description !== '' 
-    && req.body.image !== '') {
-        console.log(req.body);
-        try {
-            await productDB.createPorduct(req.body);
-            res.status(201).render('theme', { show: 'form' });
-        } catch (error) {
-            res.status(400).json({ message: error });
-        }
-    } else {
-        res.status(400).render('theme', { show: 'form' });
+const saveProduct = async (req, res) => {
+    try {
+        let imgURL = req.file.firebaseUrl;
+        await productDB.createPorduct(req.body, imgURL);
+        res.status(201).render('theme', { show: 'form' });
+    } catch (error) {
+        res.status(400).json({ message: error });
     }
 }
 
 module.exports = {
     goToForm,
     getProducts,
-    setProduct
+    saveProduct
 };
