@@ -1,0 +1,13 @@
+section 
+    if list 
+        each product in list 
+            .product__container 
+                .product__img 
+                    img(src=product.image, alt=product.name)
+                .product__info
+                    .product__info--name 
+                        p Nombre: #{product.name}
+                    .product__info--price 
+                        p Precio: #{product.price}
+                    .product__info--description 
+                        p Descripción: #{product.description}

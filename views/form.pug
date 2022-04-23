@@ -1,0 +1,11 @@
+.form__container
+    form(action="/addproduct", method="post", enctype="multipart/form-data") 
+        label(for="name") Nombre:
+        input(type="text", name="name" required)
+        label(for="price") Precio:
+        input(type="text", name="price" required)
+        label(for="description") Descripción:
+        input(type="text", name="description" required)
+        label(for="product_img") Imagen:
+        input.form__file(type="file", name="product_img" required)
+        button(type="submit") Guardar 
